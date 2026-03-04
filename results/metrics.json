@@ -1,0 +1,56 @@
+{
+  "models": [
+    {
+      "name": "CNN 2D — b32e20",
+      "short_name": "CNN 2D",
+      "msle": 0.129,
+      "training_size": 50000,
+      "optimizer": "RMSprop",
+      "lr": 0.001,
+      "batch_size": 32,
+      "epochs": 20,
+      "input_shape": "(n, 128, 128, 4)",
+      "notes": "Best model overall. Surpasses leaderboard reference (~0.2)."
+    },
+    {
+      "name": "CNN 3D",
+      "short_name": "CNN 3D",
+      "msle": 0.138,
+      "training_size": 50000,
+      "optimizer": "RMSprop",
+      "lr": 0.001,
+      "batch_size": 32,
+      "epochs": 5,
+      "input_shape": "(n, 4, 128, 128, 1)",
+      "notes": "Tuned with KerasTuner. High GPU/RAM usage."
+    },
+    {
+      "name": "L-CNN (Velocity)",
+      "short_name": "L-CNN Vel.",
+      "msle": 0.25,
+      "training_size": 50000,
+      "optimizer": "RMSprop",
+      "lr": 0.001,
+      "batch_size": 32,
+      "epochs": 20,
+      "input_shape": "(n, 128, 128, 7)",
+      "notes": "7-channel input: 4 original + 3 velocity channels (matrix difference)."
+    },
+    {
+      "name": "L-CNN (Optical Flow)",
+      "short_name": "L-CNN OF",
+      "msle": 0.324,
+      "training_size": 50000,
+      "optimizer": "RMSprop",
+      "lr": 0.001,
+      "batch_size": 32,
+      "epochs": 20,
+      "input_shape": "(n, 128, 128, 7)",
+      "notes": "Lucas-Kanade optical flow in polar coordinates (magnitude + angle)."
+    }
+  ],
+  "leaderboard_reference": 0.2,
+  "metric": "MSLE",
+  "dataset": "PlumeLabs",
+  "n_total_files": 100000
+}
